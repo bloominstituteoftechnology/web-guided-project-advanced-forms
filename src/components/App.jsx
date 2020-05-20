@@ -60,7 +60,7 @@ export default function App() {
     const name = evt.target.name
     const value = evt.target.value
 
-    // 🔥 STEP 8- RUN VALIDATION WITH YUP
+    // 🔥 STEP 12- RUN VALIDATION WITH YUP
 
     setFormValues({
       ...formValues,
@@ -69,7 +69,7 @@ export default function App() {
   }
 
   const onCheckboxChange = evt => {
-    // 🔥 STEP 9- IMPLEMENT!
+    // 🔥 STEP 8- IMPLEMENT!
     // a) pull the `name` of the checkbox from the event
     // b) pull whether `checked` true or false, from the event
     // c) set a new state for the whole form
@@ -83,9 +83,9 @@ export default function App() {
       email: formValues.email.trim(),
       role: formValues.role.trim(),
       civil: formValues.civil.trim(),
-      // 🔥 STEP 10- WHAT ABOUT HOBBIES?
+      // 🔥 STEP 9- WHAT ABOUT HOBBIES?
     }
-    // 🔥 STEP 11- POST NEW FRIEND USING HELPER
+    // 🔥 STEP 10- POST NEW FRIEND USING HELPER
   }
 
   //////////////// SIDE EFFECTS ////////////////
@@ -96,7 +96,7 @@ export default function App() {
   }, [])
 
   useEffect(() => {
-    // 🔥 STEP 12- ADJUST THE STATUS OF `disabled` EVERY TIME `formValues` CHANGES
+    // 🔥 STEP 11- ADJUST THE STATUS OF `disabled` EVERY TIME `formValues` CHANGES
   }, [])
 
   return (
@@ -107,7 +107,7 @@ export default function App() {
         values={formValues}
         onInputChange={onInputChange}
         onSubmit={onSubmit}
-      // 🔥 ADDITIONAL PROPS NEEDED
+      // 🔥🔥🔥 ADDITIONAL PROPS NEEDED 🔥🔥🔥
       />
 
       {
