@@ -6,7 +6,6 @@ import FriendForm from './FriendForm'
 //////////////// INITIAL STATES ////////////////
 //////////////// INITIAL STATES ////////////////
 //////////////// INITIAL STATES ////////////////
-// 👉 formValues
 const initialFormValues = {
   ///// TEXT INPUTS /////
   username: '',
@@ -22,21 +21,16 @@ const initialFormValues = {
     coding: false,
   },
 }
-// 👉 formErrors
 const initialFormErrors = {
   username: '',
   email: '',
   role: '',
   civil: '',
 }
-// 👉 friends
 const initialFriends = []
-// 👉 disabled
 const initialDisabled = true
 
-//////////////// PARENT COMPONENT ////////////////
-//////////////// PARENT COMPONENT ////////////////
-//////////////// PARENT COMPONENT ////////////////
+
 export default function App() {
   const [friends, setFriends] = useState(initialFriends)
   const [formValues, setFormValues] = useState(initialFormValues)
