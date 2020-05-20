@@ -1,7 +1,10 @@
 import React, { useState, useEffect } from 'react'
 import Friend from './Friend'
 import FriendForm from './FriendForm'
-// 🔥 IMPORT THE SCHEMA, AXIOS AND YUP
+// 🔥 STEP 1- CHECK THE ENDPOINTS USING POSTMAN OR HTTPIE
+// 🔥 STEP 2- FLESH OUT FriendForm.jsx
+// 🔥 STEP 3- FLESH THE SCHEMA IN ITS OWN FILE
+// 🔥 STEP 4- IMPORT THE SCHEMA, AXIOS AND YUP
 
 //////////////// INITIAL STATES ////////////////
 //////////////// INITIAL STATES ////////////////
@@ -34,18 +37,18 @@ const initialDisabled = true
 export default function App() {
   const [friends, setFriends] = useState(initialFriends)
   const [formValues, setFormValues] = useState(initialFormValues)
-  // 🔥 SET UP STATE FOR `formErrors` AND `disabled`
+  // 🔥 STEP 5- SET UP STATE FOR `formErrors` AND `disabled`
 
   //////////////// HELPERS ////////////////
   //////////////// HELPERS ////////////////
   //////////////// HELPERS ////////////////
   const getFriends = () => {
-    // 🔥 IMPLEMENT! ON SUCCESS PUT FRIENDS IN STATE
+    // 🔥 STEP 6- IMPLEMENT! ON SUCCESS PUT FRIENDS IN STATE
     //    helper to [GET] all friends from `http://localhost:4000/friends`
   }
 
   const postNewFriend = newFriend => {
-    // 🔥 IMPLEMENT! ON SUCCESS ADD NEWLY CREATED FRIEND TO STATE
+    // 🔥 STEP 7- IMPLEMENT! ON SUCCESS ADD NEWLY CREATED FRIEND TO STATE
     //    helper to [POST] `newFriend` to `http://localhost:4000/friends`
     //    and regardless of success or failure, the form should reset
   }
@@ -57,7 +60,7 @@ export default function App() {
     const name = evt.target.name
     const value = evt.target.value
 
-    // 🔥 RUN VALIDATION WITH YUP
+    // 🔥 STEP 8- RUN VALIDATION WITH YUP
 
     setFormValues({
       ...formValues,
@@ -66,7 +69,7 @@ export default function App() {
   }
 
   const onCheckboxChange = evt => {
-    // 🔥 IMPLEMENT!
+    // 🔥 STEP 9- IMPLEMENT!
     // a) pull the `name` of the checkbox from the event
     // b) pull whether `checked` true or false, from the event
     // c) set a new state for the whole form
@@ -76,24 +79,24 @@ export default function App() {
     evt.preventDefault()
 
     const newFriend = {
-      username: formValues.username,
-      email: formValues.email,
-      role: formValues.role,
-      civil: formValues.civil,
-      // 🔥 WHAT ABOUT HOBBIES?
+      username: formValues.username.trim(),
+      email: formValues.email.trim(),
+      role: formValues.role.trim(),
+      civil: formValues.civil.trim(),
+      // 🔥 STEP 10- WHAT ABOUT HOBBIES?
     }
-    // 🔥 POST NEW FRIEND USING HELPER
+    // 🔥 STEP 11- POST NEW FRIEND USING HELPER
   }
 
   //////////////// SIDE EFFECTS ////////////////
   //////////////// SIDE EFFECTS ////////////////
   //////////////// SIDE EFFECTS ////////////////
   useEffect(() => {
-    // 🔥 GET FRIENDS USING HELPER
+    getFriends()
   }, [])
 
   useEffect(() => {
-    // 🔥 ADJUST THE STATUS OF `disabled` EVERY TIME `formValues` CHANGES
+    // 🔥 STEP 12- ADJUST THE STATUS OF `disabled` EVERY TIME `formValues` CHANGES
   }, [])
 
   return (
@@ -104,7 +107,7 @@ export default function App() {
         values={formValues}
         onInputChange={onInputChange}
         onSubmit={onSubmit}
-        // 🔥 ADDITIONAL PROPS NEEDED
+      // 🔥 ADDITIONAL PROPS NEEDED
       />
 
       {
