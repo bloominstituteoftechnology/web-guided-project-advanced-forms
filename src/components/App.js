@@ -38,10 +38,10 @@ export default function App() {
   //////////////// STATES ////////////////
   //////////////// STATES ////////////////
   //////////////// STATES ////////////////
-  const [friends, setFriends] = useState(initialFriends)
-  const [formValues, setFormValues] = useState(initialFormValues)
-  const [formErrors, setFormErrors] = useState(initialFormErrors)
-  const [disabled, setDisabled] = useState(initialDisabled)
+  const [friends, setFriends] = useState(initialFriends)          // array of friend objects
+  const [formValues, setFormValues] = useState(initialFormValues) // object
+  const [formErrors, setFormErrors] = useState(initialFormErrors) // object
+  const [disabled, setDisabled] = useState(initialDisabled)       // boolean
 
   //////////////// HELPERS ////////////////
   //////////////// HELPERS ////////////////
