@@ -1,11 +1,13 @@
 import React from 'react'
 
 export default function FriendForm(props) {
-  // 🔥 MAKE SURE THE PARENT IS INJECTING ALL NECESSARY PROPS
   const {
     values,
-    onInputChange,
     onSubmit,
+    onInputChange,
+    onCheckboxChange,
+    disabled,
+    errors,
   } = props
 
   return (
