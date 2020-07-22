@@ -44,9 +44,9 @@ export default function App() {
   const [formErrors, setFormErrors] = useState(initialFormErrors) // object
   const [disabled, setDisabled] = useState(initialDisabled)       // boolean
 
-  //////////////// HELPERS ////////////////
-  //////////////// HELPERS ////////////////
-  //////////////// HELPERS ////////////////
+  //////////////// NETWORKING HELPERS ////////////////
+  //////////////// NETWORKING HELPERS ////////////////
+  //////////////// NETWORKING HELPERS ////////////////
   const getFriends = () => {
     // 🔥 STEP 5- IMPLEMENT! ON SUCCESS PUT FRIENDS IN STATE
     //    helper to [GET] all friends from `http://localhost:4000/friends`
@@ -58,9 +58,9 @@ export default function App() {
     //    and regardless of success or failure, the form should reset
   }
 
-  //////////////// EVENT HANDLERS ////////////////
-  //////////////// EVENT HANDLERS ////////////////
-  //////////////// EVENT HANDLERS ////////////////
+  //////////////// FORM ACTIONS ////////////////
+  //////////////// FORM ACTIONS ////////////////
+  //////////////// FORM ACTIONS ////////////////
   const inputChange = (name, value) => {
     // 🔥 STEP 11- RUN VALIDATION WITH YUP
     setFormValues({
