@@ -13,8 +13,8 @@ const friends = [
     id: uuid(),
     username: 'Michael',
     email: 'michael@michael.com',
-    role: 'Student',
-    civil: 'Single',
+    role: 'student',
+    civil: 'single',
     hobbies: [
       'hiking',
       'reading',

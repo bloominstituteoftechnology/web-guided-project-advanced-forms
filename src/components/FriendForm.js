@@ -3,12 +3,27 @@ import React from 'react'
 export default function FriendForm(props) {
   const {
     values,
-    onSubmit,
-    onInputChange,
-    onCheckboxChange,
+    submit,
+    inputChange,
+    checkboxChange,
     disabled,
     errors,
   } = props
+
+  const onSubmit = evt => {
+    evt.preventDefault()
+    submit()
+  }
+
+  const onCheckboxChange = evt => {
+    const { name, checked } = evt.target
+    checkboxChange(name, checked)
+  }
+
+  const onInputChange = evt => {
+    const { name, value } = evt.target
+    inputChange(name, value)
+  }
 
   return (
     <form className='form container' onSubmit={onSubmit}>
@@ -20,6 +35,10 @@ export default function FriendForm(props) {
 
         <div className='errors'>
           {/* 🔥 RENDER THE VALIDATION ERRORS HERE */}
+          <div>{errors.username}</div>
+          <div>{errors.email}</div>
+          <div>{errors.role}</div>
+          <div>{errors.civil}</div>
         </div>
       </div>
 
@@ -57,10 +76,10 @@ export default function FriendForm(props) {
             name='role'
           >
             <option value=''>- Select an option -</option>
-            <option value='Student'>Student</option>
-            <option value='Alumni'>Alumni</option>
-            <option value='Instructor'>Instructor</option>
-            <option value='TL'>Team Lead</option>
+            <option value='student'>Student</option>
+            <option value='alumni'>Alumni</option>
+            <option value='instructor'>Instructor</option>
+            <option value='tl'>Team Lead</option>
           </select>
         </label>
 

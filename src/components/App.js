@@ -2,9 +2,10 @@ import React, { useState, useEffect } from 'react'
 import Friend from './Friend'
 import FriendForm from './FriendForm'
 // 🔥 STEP 1- CHECK THE ENDPOINTS USING POSTMAN OR HTTPIE
-// 🔥 STEP 2- FLESH OUT FriendForm.jsx
+// 🔥 STEP 2- FLESH OUT FriendForm.js
 // 🔥 STEP 3- FLESH THE SCHEMA IN ITS OWN FILE
 // 🔥 STEP 4- IMPORT THE SCHEMA, AXIOS AND YUP
+
 
 //////////////// INITIAL STATES ////////////////
 //////////////// INITIAL STATES ////////////////
@@ -60,28 +61,20 @@ export default function App() {
   //////////////// EVENT HANDLERS ////////////////
   //////////////// EVENT HANDLERS ////////////////
   //////////////// EVENT HANDLERS ////////////////
-  const onInputChange = evt => {
-    const name = evt.target.name
-    const value = evt.target.value
-
+  const inputChange = (name, value) => {
     // 🔥 STEP 11- RUN VALIDATION WITH YUP
-
     setFormValues({
       ...formValues,
       [name]: value // NOT AN ARRAY
     })
   }
 
-  const onCheckboxChange = evt => {
+  const checkboxChange = (name, isChecked) => {
     // 🔥 STEP 7- IMPLEMENT!
-    // a) pull the `name` of the checkbox from the event
-    // b) pull whether `checked` true or false, from the event
-    // c) set a new state for the whole form
+    //  set a new state for the whole form
   }
 
-  const onSubmit = evt => {
-    evt.preventDefault()
-
+  const submit = () => {
     const newFriend = {
       username: formValues.username.trim(),
       email: formValues.email.trim(),
@@ -109,9 +102,9 @@ export default function App() {
 
       <FriendForm
         values={formValues}
-        onInputChange={onInputChange}
-        onCheckboxChange={onCheckboxChange}
-        onSubmit={onSubmit}
+        inputChange={inputChange}
+        checkboxChange={checkboxChange}
+        submit={submit}
         disabled={disabled}
         errors={formErrors}
       />
