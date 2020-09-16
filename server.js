@@ -44,6 +44,9 @@ app.post('/friends', (req, res) => {
   if (Object.values(requiredFields).some(field => (!field || !field.trim()))) {
     res.status(400).json({ message: 'Some required fields are missing or invalid.' })
   }
+  else if (req.body.hobbies && !Array.isArray(req.body.hobbies)) {
+    res.status(400).json({ message: 'The optional `hobbies` field must be an array.' })
+  }
   else {
     const newFriend = { id: uuid(), ...req.body }
     friends.push(newFriend)

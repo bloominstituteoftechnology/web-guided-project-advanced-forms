@@ -4,8 +4,7 @@ export default function FriendForm(props) {
   const {
     values,
     submit,
-    inputChange,
-    checkboxChange,
+    change,
     disabled,
     errors,
   } = props
@@ -15,14 +14,10 @@ export default function FriendForm(props) {
     submit()
   }
 
-  const onCheckboxChange = evt => {
-    const { name, checked } = evt.target
-    checkboxChange(name, checked)
-  }
-
-  const onInputChange = evt => {
+  const onChange = evt => {
+    /* 🔥 FIX THIS SO IT ALSO WORKS WITH CHECKBOXES */
     const { name, value } = evt.target
-    inputChange(name, value)
+    change(name, valueToUse)
   }
 
   return (
@@ -51,7 +46,7 @@ export default function FriendForm(props) {
         <label>Username&nbsp;
           <input
             value={values.username}
-            onChange={onInputChange}
+            onChange={onChange}
             name='username'
             type='text'
           />
@@ -60,7 +55,7 @@ export default function FriendForm(props) {
         <label>Email
           <input
             value={values.email}
-            onChange={onInputChange}
+            onChange={onChange}
             name='email'
             type='text'
           />
@@ -71,7 +66,7 @@ export default function FriendForm(props) {
         {/* ////////// DROPDOWN ////////// */}
         <label>Role
           <select
-            onChange={onInputChange}
+            onChange={onChange}
             value={values.role}
             name='role'
           >

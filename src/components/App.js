@@ -19,11 +19,9 @@ const initialFormValues = {
   ///// RADIO BUTTONS /////
   civil: '',
   ///// CHECKBOXES /////
-  hobbies: {
-    hiking: false,
-    reading: false,
-    coding: false,
-  },
+  hiking: false,
+  reading: false,
+  coding: false,
 }
 const initialFormErrors = {
   username: '',
@@ -44,9 +42,9 @@ export default function App() {
   const [formErrors, setFormErrors] = useState(initialFormErrors) // object
   const [disabled, setDisabled] = useState(initialDisabled)       // boolean
 
-  //////////////// NETWORKING HELPERS ////////////////
-  //////////////// NETWORKING HELPERS ////////////////
-  //////////////// NETWORKING HELPERS ////////////////
+  //////////////// HELPERS ////////////////
+  //////////////// HELPERS ////////////////
+  //////////////// HELPERS ////////////////
   const getFriends = () => {
     // 🔥 STEP 5- IMPLEMENT! ON SUCCESS PUT FRIENDS IN STATE
     //    helper to [GET] all friends from `http://localhost:4000/friends`
@@ -58,31 +56,26 @@ export default function App() {
     //    and regardless of success or failure, the form should reset
   }
 
-  //////////////// FORM ACTIONS ////////////////
-  //////////////// FORM ACTIONS ////////////////
-  //////////////// FORM ACTIONS ////////////////
+  //////////////// EVENT HANDLERS ////////////////
+  //////////////// EVENT HANDLERS ////////////////
+  //////////////// EVENT HANDLERS ////////////////
   const inputChange = (name, value) => {
-    // 🔥 STEP 11- RUN VALIDATION WITH YUP
+    // 🔥 STEP 10- RUN VALIDATION WITH YUP
     setFormValues({
       ...formValues,
       [name]: value // NOT AN ARRAY
     })
   }
 
-  const checkboxChange = (name, isChecked) => {
-    // 🔥 STEP 7- IMPLEMENT!
-    //  set a new state for the whole form
-  }
-
-  const submit = () => {
+  const formSubmit = () => {
     const newFriend = {
       username: formValues.username.trim(),
       email: formValues.email.trim(),
       role: formValues.role.trim(),
       civil: formValues.civil.trim(),
-      // 🔥 STEP 8- WHAT ABOUT HOBBIES?
+      // 🔥 STEP 7- WHAT ABOUT HOBBIES?
     }
-    // 🔥 STEP 9- POST NEW FRIEND USING HELPER
+    // 🔥 STEP 8- POST NEW FRIEND USING HELPER
   }
 
   //////////////// SIDE EFFECTS ////////////////
@@ -93,7 +86,7 @@ export default function App() {
   }, [])
 
   useEffect(() => {
-    // 🔥 STEP 10- ADJUST THE STATUS OF `disabled` EVERY TIME `formValues` CHANGES
+    // 🔥 STEP 9- ADJUST THE STATUS OF `disabled` EVERY TIME `formValues` CHANGES
   }, [])
 
   return (
@@ -102,9 +95,8 @@ export default function App() {
 
       <FriendForm
         values={formValues}
-        inputChange={inputChange}
-        checkboxChange={checkboxChange}
-        submit={submit}
+        change={inputChange}
+        submit={formSubmit}
         disabled={disabled}
         errors={formErrors}
       />
