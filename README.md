@@ -15,3 +15,20 @@ The dev server for the API runs on port `4000` and this port needs to be free, o
 - Run `npm i` to download the project's dependencies listed in the `package.json`.
 - Run `npm start` to compile the React project and spin up the app on `http://localhost:1234`.
 - Run `npm run server` to spin up a local API on `http://localhost:4000/friends`.
+
+Today's endpoints are:
+
+- [GET] `http://localhost:4000/friends`
+- [POST] `http://localhost:4000/friends`
+
+In order to [POST] a new friend we must supply several required fields.
+
+```js
+  // example of a new friend
+  {
+    "username": "Tom",
+    "email": "tom@tom.com",
+    "role": "tl",
+    "civil": "single"
+  }
+```
