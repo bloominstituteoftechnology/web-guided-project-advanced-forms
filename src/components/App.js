@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react'
 import Friend from './Friend'
 import FriendForm from './FriendForm'
-// 🔥 STEP 1- FLESH OUT FriendForm.js
-// 🔥 STEP 2- FLESH THE SCHEMA IN ITS OWN FILE
-// 🔥 STEP 3- IMPORT THE SCHEMA, AXIOS AND YUP
+// 🔥 STEP 1- CHECK THE ENDPOINTS IN THE README
+// 🔥 STEP 2- FLESH OUT FriendForm.js
+// 🔥 STEP 3- FLESH THE SCHEMA IN ITS OWN FILE
+// 🔥 STEP 4- IMPORT THE SCHEMA, AXIOS AND YUP
 
 
 //////////////// INITIAL STATES ////////////////
@@ -45,12 +46,12 @@ export default function App() {
   //////////////// HELPERS ////////////////
   //////////////// HELPERS ////////////////
   const getFriends = () => {
-    // 🔥 STEP 4- IMPLEMENT! ON SUCCESS PUT FRIENDS IN STATE
+    // 🔥 STEP 5- IMPLEMENT! ON SUCCESS PUT FRIENDS IN STATE
     //    helper to [GET] all friends from `http://buddies.com/api/friends`
   }
 
   const postNewFriend = newFriend => {
-    // 🔥 STEP 5- IMPLEMENT! ON SUCCESS ADD NEWLY CREATED FRIEND TO STATE
+    // 🔥 STEP 6- IMPLEMENT! ON SUCCESS ADD NEWLY CREATED FRIEND TO STATE
     //    helper to [POST] `newFriend` to `http://buddies.com/api/friends`
     //    and regardless of success or failure, the form should reset
   }
@@ -59,7 +60,7 @@ export default function App() {
   //////////////// EVENT HANDLERS ////////////////
   //////////////// EVENT HANDLERS ////////////////
   const inputChange = (name, value) => {
-    // 🔥 STEP 9- RUN VALIDATION WITH YUP
+    // 🔥 STEP 10- RUN VALIDATION WITH YUP
     setFormValues({
       ...formValues,
       [name]: value // NOT AN ARRAY
@@ -72,9 +73,9 @@ export default function App() {
       email: formValues.email.trim(),
       role: formValues.role.trim(),
       civil: formValues.civil.trim(),
-      // 🔥 STEP 6- WHAT ABOUT HOBBIES?
+      // 🔥 STEP 7- WHAT ABOUT HOBBIES?
     }
-    // 🔥 STEP 7- POST NEW FRIEND USING HELPER
+    // 🔥 STEP 8- POST NEW FRIEND USING HELPER
   }
 
   //////////////// SIDE EFFECTS ////////////////
@@ -85,7 +86,7 @@ export default function App() {
   }, [])
 
   useEffect(() => {
-    // 🔥 STEP 8- ADJUST THE STATUS OF `disabled` EVERY TIME `formValues` CHANGES
+    // 🔥 STEP 9- ADJUST THE STATUS OF `disabled` EVERY TIME `formValues` CHANGES
   }, [])
 
   return (
