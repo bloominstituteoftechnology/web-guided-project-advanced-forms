@@ -31,4 +31,4 @@ In order to [POST] a new friend we must supply several required fields.
 ```
 
 ## Rick's Pull Request
-- [Pull Request Link for Convenience]
+- [Pull Request Link for Convenience](https://github.com/LambdaSchool/web-guided-project-advanced-forms/pull/6)
