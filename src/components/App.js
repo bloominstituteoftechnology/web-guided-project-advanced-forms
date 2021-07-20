@@ -69,11 +69,15 @@ export default function App() {
     axios.post('http://buddies.com/api/friends', newFriend)
     .then(res => {
       setFriends([...friends, res.data])//do not do this on auto pilot look at it
+      setFormValues(initialFormValues)
     })
     .catch(err => {
       debugger
       console.log(err)
-    });
+    })
+    .finally(() =>{
+      //this would be the good spot to clean the form nomrally... but we moved setFormValues(initialFormValues) above for debugging reasons. 
+    })
   }
   
 
@@ -98,7 +102,7 @@ export default function App() {
       hobbies: ['coding', 'reading', 'hiking'].filter(hob => formValues[hob] ),
     }
     // 🔥 STEP 8- POST NEW FRIEND USING HELPER
-    postNewFriend()
+    postNewFriend(newFriend)
   }
 
   //////////////// SIDE EFFECTS ////////////////
@@ -111,6 +115,17 @@ export default function App() {
   useEffect(() => {
     // 🔥 STEP 9- ADJUST THE STATUS OF `disabled` EVERY TIME `formValues` CHANGES
   }, [])
+    /* Each time the form value state is updated, check to see if it is valid per our schema.  This will allow us to enable/disable the submit button.*/
+    
+  /* We pass the entire state into the entire schema, no need to use reach here.
+  We want to make sure it is all valid before we allow a user to submit
+  isValid comes from Yup directly */
+  useEffect(() => {
+    schema.isValid(formValues)
+    .then(valid => {
+      setDisabled(!valid);
+    });
+  }, [formValues]);
 
   return (
     <div className='container'>
