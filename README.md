@@ -1,5 +1,9 @@
 # Friends Advanced Form Management
 
+- [Friends Advanced Form Management](#friends-advanced-form-management)
+  - [Running this project](#running-this-project)
+  - [Rick's Pull Request](#ricks-pull-request)
+
 ## Running this project
 
 This project is set up with [Parcel Bundler](https://parceljs.org/), an npm package
@@ -30,4 +34,5 @@ In order to [POST] a new friend we must supply several required fields.
   }
 ```
 
-TEST 
+## Rick's Pull Request
+- [PUll Req for convenience](https://github.com/LambdaSchool/web-guided-project-advanced-forms/pull/7)
