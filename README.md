@@ -29,3 +29,6 @@ In order to [POST] a new friend we must supply several required fields.
     "civil": "single"
   }
 ```
+
+## Rick's Pull Request
+- [Pull Request Link for Convenience]
