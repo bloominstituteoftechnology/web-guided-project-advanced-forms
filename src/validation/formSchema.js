@@ -14,7 +14,6 @@ export default yup.object().shape({
         .oneOf(['tl', 'instructor', 'alumni', 'student'], 'Role is required'),
     civil: yup
     .string()
-    .boolean()
     .oneOf(['single', 'married'], "Civil status is required"),
     //checkboxes are complete
     hiking: yup.boolean(),
