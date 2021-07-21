@@ -8,6 +8,7 @@ import FriendForm from './FriendForm'
 import schema from '../validation/formSchema'
 import axios from 'axios'
 import * as yup from 'yup'
+import { validate } from 'graphql'
 
 //////////////// INITIAL STATES ////////////////
 //////////////// INITIAL STATES ////////////////
@@ -55,7 +56,7 @@ export default function App() {
       setFriends(res.data)
     })
     .catch(err => {
-      debugger
+      debugger //eslint-disable-line
       console.log(err)
       
     });
@@ -72,7 +73,7 @@ export default function App() {
       setFormValues(initialFormValues)
     })
     .catch(err => {
-      debugger
+      debugger //eslint-disable-line
       console.log(err)
     })
     .finally(() =>{
@@ -80,12 +81,34 @@ export default function App() {
     })
   }
   
+  const validate = (name, value) => {
+     // yup.reach will allow us to "reach" into the schema and test only one part.
+    // We give reach the schema as the first argument, and the key we want to test as the second.
+    yup
+      .reach(schema, name)
+      //we can then run validate using the value
+      .validate(value)
+      // if the validation is successful, we can clear the error message
+      .then(valid => {//eslint-disable-line
+        setFormErrors({
+          ...formErrors, [name]: ""
+        });
+      })
+      // if the validation is unsuccessful, we can set the error message to the message
+      // returned from yup (that we created in our schema)
+      .catch(err => {
+        setFormErrors({
+          ...formErrors, [name]: err.errors[0]
+        });
+      });
 
+  }
   //////////////// EVENT HANDLERS ////////////////
   //////////////// EVENT HANDLERS ////////////////
   //////////////// EVENT HANDLERS ////////////////
   const inputChange = (name, value) => {
     // 🔥 STEP 10- RUN VALIDATION WITH YUP
+    validate(name, value)
     setFormValues({
       ...formValues,
       [name]: value // NOT AN ARRAY
@@ -116,7 +139,7 @@ export default function App() {
     // 🔥 STEP 9- ADJUST THE STATUS OF `disabled` EVERY TIME `formValues` CHANGES
   }, [])
     /* Each time the form value state is updated, check to see if it is valid per our schema.  This will allow us to enable/disable the submit button.*/
-    
+
   /* We pass the entire state into the entire schema, no need to use reach here.
   We want to make sure it is all valid before we allow a user to submit
   isValid comes from Yup directly */
