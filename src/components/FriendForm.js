@@ -74,7 +74,6 @@ export default function FriendForm(props) {
             <option value='student'>Student</option>
             <option value='alumni'>Alumni</option>
             <option value='instructor'>Instructor</option>
-            <option value='tl'>Team Lead</option>
           </select>
         </label>
 
