@@ -5,7 +5,9 @@ import FriendForm from './FriendForm'
 // 🔥 STEP 2- FLESH OUT FriendForm.js
 // 🔥 STEP 3- FLESH THE SCHEMA IN ITS OWN FILE
 // 🔥 STEP 4- IMPORT THE SCHEMA, AXIOS AND YUP
-
+import schema from "../validation/formSchema";
+import axios from "axios";
+import * as yup from "yup";
 
 //////////////// INITIAL STATES ////////////////
 //////////////// INITIAL STATES ////////////////
@@ -48,12 +50,20 @@ export default function App() {
   const getFriends = () => {
     // 🔥 STEP 5- IMPLEMENT! ON SUCCESS PUT FRIENDS IN STATE
     //    helper to [GET] all friends from `http://buddies.com/api/friends`
+    axios.get("http://buddies.com/api/friends")
+      .then(res => {
+        setFriends(res.data);
+      }).catch(err => console.error(err))
   }
 
   const postNewFriend = newFriend => {
     // 🔥 STEP 6- IMPLEMENT! ON SUCCESS ADD NEWLY CREATED FRIEND TO STATE
     //    helper to [POST] `newFriend` to `http://buddies.com/api/friends`
     //    and regardless of success or failure, the form should reset
+    axios.post("http://buddies.com/api/friends", newFriend)
+      .then(res => {
+        console.log(res);
+      }).catch(err => console.error(err))
   }
 
   //////////////// EVENT HANDLERS ////////////////
@@ -74,9 +84,30 @@ export default function App() {
       role: formValues.role.trim(),
       civil: formValues.civil.trim(),
       // 🔥 STEP 7- WHAT ABOUT HOBBIES?
+      hobbies: ["hiking", "reading", "coding"].filter(hobby => !!formValues[hobby])
     }
+    postNewFriend(newFriend);
     // 🔥 STEP 8- POST NEW FRIEND USING HELPER
   }
+
+  // !false => true
+  // !"Casey" => !false => true
+  // !!"Casey" => true
+  // !!null => false
+  // !!1 => true
+  /**
+   * OBJECT FUUUUUN!
+   * 1.) dot notation => must be the key exact cut and dry there ya go
+   * 2.) bracket notation => pass in a string orrrrrr a variable
+   */
+
+  // const val = "name"
+
+  // const person = {
+  //   name: "Casey"
+  // }
+
+  // person[val]
 
   //////////////// SIDE EFFECTS ////////////////
   //////////////// SIDE EFFECTS ////////////////

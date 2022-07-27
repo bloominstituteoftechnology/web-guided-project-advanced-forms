@@ -9,6 +9,7 @@ export default function FriendForm(props) {
     errors,
   } = props
 
+
   const onSubmit = evt => {
     evt.preventDefault()
     submit()
