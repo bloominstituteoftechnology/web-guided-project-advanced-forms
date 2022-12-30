@@ -87,7 +87,7 @@ setFriends(res.data)
     .then(() => setFormErrors({ ...formErrors, [name]: '' }))
     .catch(err => setFormErrors({ ...formErrors, [name]: err.errors[0] }))
   }
-  const inputChange = (name, value) => {
+  const  inputChange = (name, value) => {
     // 🔥 STEP 10- RUN VALIDATION WITH YUP
     validate(name, value);
     setFormValues({
