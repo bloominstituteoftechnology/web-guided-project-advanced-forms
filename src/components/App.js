@@ -52,15 +52,14 @@ export default function App() {
     // 🔥 STEP 5- IMPLEMENT! ON SUCCESS PUT FRIENDS IN STATE
     //    helper to [GET] all friends from `http://buddies.com/api/friends`
   
-axios.get("http://buddies.com/api/friends")
+axios.get('http://buddies.com/api/friends')
 .then(res => {
-setFriends(res.data)
+  setFriends(res.data)
 })
 .catch(err => {
    console.error(err)
    debugger
-})
-
+  })
 }
   const postNewFriend = newFriend => {
     // 🔥 STEP 6- IMPLEMENT! ON SUCCESS ADD NEWLY CREATED FRIEND TO STATE
@@ -102,7 +101,7 @@ setFriends(res.data)
       email: formValues.email.trim(),
       role: formValues.role.trim(),
       civil: formValues.civil.trim(),
-      hobbies: ["hiking", "reading", "coding"].filter(hobby => !!formValues[hobby])
+      hobbies: ['hiking', 'reading', 'coding'].filter(hob => !!formValues[hob])
       // 🔥 STEP 7- WHAT ABOUT HOBBIES?
     }
     // 🔥 STEP 8- POST NEW FRIEND USING HELPER
